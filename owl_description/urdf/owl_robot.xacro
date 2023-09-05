@@ -3,11 +3,11 @@
 
     <xacro:include filename="$(find owl_description)/urdf/d435.urdf.xacro" />
     <xacro:include filename="$(find owl_description)/urdf/urdf_6_3.xacro"/>
-    <xacro:include filename="$(find owl_description)/urdf/owl.gazebo.xacro"/>
+    <!-- <xacro:include filename="$(find owl_description)/urdf/owl.gazebo.xacro"/> -->
     <!-- <xacro:include filename="$(find owl_description)/urdf/robotiq_v2.xacro" /> -->
     
     <xacro:owl_arm/>
-    <xacro:gazebo_owl/>
+    <!-- <xacro:gazebo_owl/> -->
     <!-- <xacro:robotiq_gripper /> -->
 
     <!-- <joint name="robot_ee-gripper_robotiq_arg2f_base_joint" type="fixed">

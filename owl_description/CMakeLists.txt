@@ -184,6 +184,16 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
-install(DIRECTORY urdf_notool meshes_onshape_notool
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+install(FILES
+  launch/rviz.launch
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+)
+
+install(FILES
+  urdf/owl_robot.xacro
+  urdf/d435.urdf.xacro
+  urdf/urdf_6_3.xacro
+  urdf/d435.gazebo.xacro
+  urdf/owl.gazebo.xacro
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/urdf
 )
