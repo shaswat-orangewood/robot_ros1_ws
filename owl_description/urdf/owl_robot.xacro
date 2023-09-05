@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<robot name="owl_d435" xmlns:xacro="http://wiki.ros.org/xacro">
+
+    <xacro:include filename="$(find owl_description)/urdf/d435.urdf.xacro" />
+    <xacro:include filename="$(find owl_description)/urdf/urdf_6_3.xacro"/>
+    <xacro:include filename="$(find owl_description)/urdf/owl.gazebo.xacro"/>
+    <!-- <xacro:include filename="$(find owl_description)/urdf/robotiq_v2.xacro" /> -->
+    
+    <xacro:owl_arm/>
+    <xacro:gazebo_owl/>
+    <!-- <xacro:robotiq_gripper /> -->
+
+    <!-- <joint name="robot_ee-gripper_robotiq_arg2f_base_joint" type="fixed">
+        <origin xyz="0 0 -0.105" rpy="3.14 0 0" />
+        <parent link="tcp" />
+        <child link="robotiq_coupler_link" />
+    </joint> -->
+  
+    <xacro:sensor_d435 name="camera" topics_ns="camera" parent="camera_holder" publish_pointcloud="true">
+        <origin xyz="0.1315 0.0235 0.041" rpy="1.57 0 0" />
+    </xacro:sensor_d435>  
+
+</robot>

@@ -1,0 +1,14 @@
+<launch>
+    <!-- ros-driver-parameters -->
+    <param name="robot_ip" value="10.42.0.54"/> 
+    <param name="velocity_scaling" value="0.6"/>
+
+    <!-- robot-description -->
+    <param name="robot_description" textfile="$(find owl_description)/urdf_new/urdf_6_3.urdf" /> 
+
+    <!-- ros-driver-node -->
+    <node name="owl_moveit_driver" pkg="owl_moveit_driver" type="owl_moveit_driver.py" output="screen"/>
+    
+    <!-- robot-state-publisher -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+</launch>

@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="owr_6.3" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="owl_arm">
+
+    <!-- <link name="map" />
+    <joint name="rtab_joint" type="fixed">
+      <origin xyz="0 0 0.0" rpy="0 0 0" />
+      <parent link="map" />
+      <child link="world" />
+    </joint> -->
+    <link name="world" />
+    <joint name="virtual_joint" type="fixed">
+      <origin xyz="0 0 0.0" rpy="0 0 0" />
+      <parent link="world" />
+      <child link="base_link" />
+    </joint>
+    <link name="base_link">
+      <inertial>
+        <origin
+        xyz="2.7395E-05 -0.01813 4.3722E-05"
+        rpy="0 0 0" />
+        <mass
+        value="2.39" />
+        <inertia
+        ixx="0.0060063"
+        ixy="-2.5541E-15"
+        ixz="-2.5603E-07"
+        iyy="0.0095451"
+        iyz="5.1619E-15"
+        izz="0.006006" />
+      </inertial>
+      <visual>
+        <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+        <geometry>
+          <mesh
+          filename="package://owl_description/meshes/owl_robot/base_link.STL" />
+        </geometry>
+        <material
+        name="">
+          <color
+          rgba="0.89804 0.91765 0.92941 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+        <geometry>
+          <mesh
+          filename="package://owl_description/meshes/owl_robot/base_link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <link
+    name="shoulder_link">
+      <inertial>
+        <origin
+        xyz="0.00042134 0.034391 -0.10382"
+        rpy="0 0 0" />
+        <mass
+        value="4.613" />
+        <inertia
+        ixx="0.0035279"
+        ixy="-5.6452E-06"
+        ixz="-9.4882E-07"
+        iyy="0.0046955"
+        iyz="0.00045199"
+        izz="0.0048177" />
+      </inertial>
+      <visual>
+        <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+        <geometry>
+          <mesh
+          filename="package://owl_description/meshes/owl_robot/shoulder_link.STL" />
+        </geometry>
+        <material
+        name="">
+          <color
+          rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+        <geometry>
+          <mesh
+          filename="package://owl_description/meshes/owl_robot/shoulder_link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+    name="BJ"
+    type="continuous">
+      <origin
+      xyz="0 0 0"
+      rpy="-3.1416 0 -1.574" />
+      <parent
+      link="base_link" />
+      <child
+      link="shoulder_link" />
+      <axis
+      xyz="0 0 1" />
+      <limit effort="500" velocity="50" lower="-2.0944" upper="2.0944"/>
+      <!-- <limit lower="-3.14" upper="3.14" /> -->
+    </joint>
+    <link
+    name="link1">
+      <inertial>
+        <origin
+        xyz=" 0.17795 0.00011012 -0.085428"
+        rpy="0 0 0" />
+        <mass
+        value="9.431" />
+        <inertia
+        ixx="0.0052455"
+        ixy="1.4977E-05"
+        ixz="2.6778E-05"
+        iyy="0.028778"
+        iyz="-3.8624E-06"
+        izz="0.032177" />
+      </inertial>
+      <visual>
+        <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+        <geometry>
+          <mesh
+          filename="package://owl_description/meshes/owl_robot/link1.STL" />
+        </geometry>
+        <material
+        name="">
+          <color
+          rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+        <geometry>
+          <mesh
+          filename="package://owl_description/meshes/owl_robot/link1.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+    name="SJ"
+    type="continuous">
+      <origin
+      xyz="0.00018339 0.066603 -0.1405"
+      rpy="0.58944 1.5675 -0.983" />
+      <parent
+      link="shoulder_link" />
+      <child
+      link="link1" />
+      <axis
+      xyz="0.0027142 -0.0011243 1" />
+      <limit effort="500" velocity="50" lower="-1.6" upper="1.6"/>
+      <!-- <limit lower="-2.355" upper="2.355" /> -->
+    </joint>
+    <link
+    name="elbow_link">
+      <inertial>
+        <origin
+        xyz="0.00023616 -0.028792 -0.029823"
+        rpy="0 0 0" />
+        <mass
+        value="4.613" />
+        <inertia
+        ixx="0.0023499"
+        ixy="-2.7675E-06"
+        ixz="-4.1087E-07"
+        iyy="0.0030181"
+        iyz="-0.00026183"
+        izz="0.0035661" />
+      </inertial>
+      <visual>
+        <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+        <geometry>
+          <mesh
+          filename="package://owl_description/meshes/owl_robot/elbow_link.STL" />
+        </geometry>
+        <material
+        name="">
+          <color
+          rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+        <geometry>
+          <mesh
+          filename="package://owl_description/meshes/owl_robot/elbow_link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+    name="EJ"
+    type="continuous">
+      <origin
+      xyz="0.35575 0 -0.00096557"
+      rpy="3.1389 -0.0018334 -1.5781" />
+      <parent
+      link="link1" />
+      <child
+      link="elbow_link" />
+      <axis
+      xyz="0 0 1" />
+      <limit effort="500" velocity="50" lower="-1.57" upper="3.14"/>
+      <!-- <limit lower="-2.355" upper="2.355" /> -->
+    </joint>
+    <link
+    name="link2">
+      <inertial>
+        <origin
+        xyz="0.00015054 -0.075078 0.13834"
+        rpy="0 0 0" />
+        <mass
+        value="2.4407" />
+        <inertia
+        ixx="0.009134"
+        ixy="-3.9978E-06"
+        ixz="-4.8015E-06"
+        iyy="0.010823"
+        iyz="0.00068065"
+        izz="0.0041094" />
+      </inertial>
+      <visual>
+        <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+        <geometry>
+          <mesh
+          filename="package://owl_description/meshes/owl_robot/link2.STL" />
+        </geometry>
+        <material
+        name="">
+          <color
+          rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+        <geometry>
+          <mesh
+          filename="package://owl_description/meshes/owl_robot/link2.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+    name="W1J"
+    type="continuous">
+      <origin
+      xyz="0.00019567 -0.079361 -0.066603"
+      rpy="1.5708 -0.0023608 0" />
+      <parent
+      link="elbow_link" />
+      <child
+      link="link2" />
+      <axis
+      xyz="0 0 -1" />
+      <limit effort="500" velocity="50" lower="-2.84489" upper="2.84489"/>
+      <!-- <limit lower="-2.355" upper="2.355" /> -->
+    </joint>
+    <link
+    name="w2w3_link">
+      <inertial>
+        <origin
+        xyz="0.00025923 0.029764 0.027271"
+        rpy="0 0 0" />
+        <mass
+        value="3.118" />
+        <inertia
+        ixx="0.0014884"
+        ixy="2.1526E-06"
+        ixz="6.6731E-06"
+        iyy="0.0016882"
+        iyz="0.0001816"
+        izz="0.0019291" />
+      </inertial>
+      <visual>
+        <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+        <geometry>
+          <mesh
+          filename="package://owl_description/meshes/owl_robot/w2w3_link.STL" />
+        </geometry>
+        <material
+        name="">
+          <color
+          rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+        <geometry>
+          <mesh
+          filename="package://owl_description/meshes/owl_robot/w2w3_link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+    name="W2J"
+    type="continuous">
+      <origin
+      xyz="0 0 0.27639"
+      rpy="2.745 -1.5667 -1.1726" />
+      <parent
+      link="link2" />
+      <child
+      link="w2w3_link" />
+      <axis
+      xyz="0.0037507 -0.00083382 0.99999" />
+      <limit effort="500" velocity="50" lower="-1.6" upper="2.1"/>
+      <!-- <limit lower="-2.355" upper="2.355" /> -->
+    </joint>
+    <link
+    name="end_effector_link">
+      <inertial>
+        <origin
+        xyz="2.2451E-05 -0.00060487 0.098537"
+        rpy="0 0 0" />
+        <mass
+        value="0.188" />
+        <inertia
+        ixx="0.00017935"
+        ixy="-3.2299E-08"
+        ixz="-2.1374E-07"
+        iyy="0.00017907"
+        iyz="-4.545E-07"
+        izz="0.00025742" />
+      </inertial>
+      <visual>
+        <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+        <geometry>
+          <mesh
+          filename="package://owl_description/meshes/owl_robot/end_effector_link.STL" />
+        </geometry>
+        <material
+        name="">
+          <color
+          rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+        <geometry>
+          <mesh
+          filename="package://owl_description/meshes/owl_robot/end_effector_link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+    name="W3J"
+    type="continuous">
+      <origin
+      xyz="0 0 0"
+      rpy="-1.2578 -1.5668 -0.31786" />
+      <limit effort="500" velocity="50" lower="-3.1" upper="3.1"/>
+      <parent
+      link="w2w3_link" />
+      <child
+      link="end_effector_link" />
+      <axis
+      xyz="0 0 1" />
+    </joint>
+    <xacro:arg name="xyz" default="0 0 0" />
+    <xacro:arg name="rpy" default="0 0 0" />
+    <xacro:arg name="pay_load" default="1e-9" />
+    <link name="tcp">
+      <inertial>
+        <origin rpy="$(arg rpy)" xyz="$(arg xyz)"   />
+        <mass value="$(arg pay_load)" />
+        <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+      </inertial>
+    </link>
+    <joint name="tcp_frame" type="fixed">
+      <origin xyz="4.33681e-19 0 0.1225" rpy="5.94633e-15 -1.33504e-14 -1.5708" />
+      <parent link="end_effector_link" />
+      <child link="tcp" />
+      <axis xyz="0 0 0"/>
+    </joint>
+
+    <link name="camera_holder">
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://owl_description/meshes/holder/MOUNT.STL" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://owl_description/meshes/holder/MOUNT.STL" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="camera_holder_joint"
+      type="fixed">
+      <origin
+        xyz="0.045 -0.045 -0.053"
+        rpy="1.57 0 3.14" />
+      <parent
+        link="tcp" />
+      <child
+        link="camera_holder" />
+      <axis
+        xyz="0 0 0" />
+    </joint>
+    <link name="gripper_model">
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://owl_description/meshes/holder/ANG_GRIPPER.STL" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://owl_description/meshes/holder/ANG_GRIPPER.STL" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="gripper_holder_joint"
+      type="fixed">
+      <origin
+        xyz="0.35 0.028 0.092"
+        rpy="0 3.14 0" />
+      <parent
+        link="camera_holder" />
+      <child
+        link="gripper_model" />
+      <axis
+        xyz="1.57 1.57 0" />
+    </joint>
+
+    <link name="tcp_ee">
+    </link>
+    <joint
+      name="tcp_gripper"
+      type="fixed">
+      <origin
+        xyz="-0.3 0 0"
+        rpy="0 0 0" />
+      <parent
+        link="tcp" />
+      <child
+        link="tcp_ee" />
+      <axis
+        xyz="0 0 0" />
+    </joint>
+  </xacro:macro>
+</robot>

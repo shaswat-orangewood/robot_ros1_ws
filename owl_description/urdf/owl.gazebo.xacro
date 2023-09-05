@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  
+  <xacro:macro name="gazebo_owl">
+
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        <!-- <robotNamespace>/owr_6.3</robotNamespace> -->
+        <!-- <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType> -->
+        </plugin>
+    </gazebo>
+
+    <gazebo>
+        <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+            <jointName>BJ, SJ, EJ, W1J, W2J, W3J</jointName>
+        </plugin>
+    </gazebo>
+
+
+    <gazebo reference="shoulder_link">
+        <material>Gazebo/Gray</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="link1">
+        <material>Gazebo/Gray</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="elbow_link">
+        <material>Gazebo/Gray</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="link2">
+        <material>Gazebo/Gray</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="w2w3_link">
+        <material>Gazebo/Gray</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="end_effector_link">
+        <material>Gazebo/Gray</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+    <gazebo reference="tcp">
+        <material>Gazebo/Gray</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <transmission name="BJ_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="BJ">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="BJ_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="SJ_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="SJ">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="SJ_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="EJ_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="EJ">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="EJ_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="W1J_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="W1J">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="W1J_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="W2J_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="W2J">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="W2J_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="W3J_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="W3J">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="W3J_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+  </xacro:macro>
+</robot>

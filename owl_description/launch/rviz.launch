@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="rviz" default="true"/>
+  <arg name="js_pub" default="true"/>
+  <!-- <param name="/use_sim_time" value="true" /> -->
+
+  <param name="robot_description" command="$(find xacro)/xacro '$(find owl_description)/urdf/owl_robot.xacro'"/>
+
+  <node if="$(arg js_pub)" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+  <arg name="rvizconfig" default="$(find owl_description)/rviz/rviz.rviz" />
+  <node if="$(arg rviz)" name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+
+</launch>

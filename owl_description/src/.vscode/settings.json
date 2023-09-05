@@ -1,0 +1,12 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/ow-labs/ws_moveit/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages",
+        "/home/ow-labs/workspaces/robotgpt_6_5/owl_robotgpt/.."
+    ],
+    "python.analysis.extraPaths": [
+        "/home/ow-labs/ws_moveit/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages",
+        "/home/ow-labs/workspaces/robotgpt_6_5/owl_robotgpt/.."
+    ]
+}

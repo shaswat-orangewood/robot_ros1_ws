@@ -1,0 +1,36 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/opt/ros/noetic/include/**",
+        "/home/ow-labs/ws_moveit/devel/include/**",
+        "/home/ow-labs/ws_moveit/src/moveit_planners/chomp/chomp_motion_planner/include/**",
+        "/home/ow-labs/ws_moveit/src/moveit_planners/chomp/chomp_interface/include/**",
+        "/home/ow-labs/ws_moveit/src/moveit_ros/benchmarks/include/**",
+        "/home/ow-labs/ws_moveit/src/moveit_plugins/moveit_ros_control_interface/include/**",
+        "/home/ow-labs/ws_moveit/src/moveit_ros/move_group/include/**",
+        "/home/ow-labs/ws_moveit/src/moveit_ros/occupancy_map_monitor/include/**",
+        "/home/ow-labs/ws_moveit/src/moveit_ros/robot_interaction/include/**",
+        "/home/ow-labs/ws_moveit/src/moveit_ros/moveit_servo/include/**",
+        "/home/ow-labs/ws_moveit/src/moveit_setup_assistant/include/**",
+        "/home/ow-labs/ws_moveit/src/moveit_plugins/moveit_simple_controller_manager/include/**",
+        "/home/ow-labs/ws_moveit/src/moveit_visual_tools/include/**",
+        "/home/ow-labs/ws_moveit/src/octomap_rviz_plugins/include/**",
+        "/home/ow-labs/ws_moveit/src/moveit_planners/pilz_industrial_motion_planner/include/**",
+        "/home/ow-labs/ws_moveit/src/moveit_planners/pilz_industrial_motion_planner_testutils/include/**",
+        "/home/ow-labs/ws_moveit/src/rviz_visual_tools/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

@@ -1,0 +1,20 @@
+<launch>
+
+  <!-- <param name="/use_sim_time" value="true" /> -->
+  <arg name="moveit_controller_manager" default="fake" />
+
+  <include file="$(find owl_moveit_config)/launch/demo.launch">
+    <arg name="moveit_controller_manager" value="$(arg moveit_controller_manager)" />
+  </include>
+
+  <param name="robot_description_planning/shape_transform_cache_lookup_wait_time" value="0.1" />
+
+  <node if="$(eval arg('moveit_controller_manager') == 'simple')" name="owl_moveit_driver" type="owl_moveit_driver.py" pkg ="owl_moveit_driver" />
+
+  <!-- <node name="point_cloud_publisher" type="ply_publisher.py" pkg ="owl_description" /> -->
+
+  <!-- <node name="ROI_visualizer" type="create_ROI.py" pkg ="owl_description" /> -->
+
+  <node name="ROI_creater" type="draw_ROI.py" pkg ="owl_description" />
+
+</launch>
