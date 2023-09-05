@@ -11,13 +11,14 @@ parts:
   robotgpt-ros:
     # See 'snapcraft plugins'
     plugin: catkin
-    source: .
-    # catkin-packages:  # white list package to integrate
-    #   - snapped-ros1-pkg
-    build-packages:
-      - libboost-filesystem1.71.0
-      - liblog4cxx-dev
-      - libboost-regex1.71.0
+    source: https://github.com/shaswat-orangewood/robot_ros1_ws.git
+    source-branch: main
+    catkin-packages: [owl_description,owl_moveit_config,owl_moveit_driver]
     stage-packages:
       - ros-noetic-rosbash # necessary if we need rosrun
       - ros-noetic-roslaunch # necessary if we need roslaunch
+
+apps:
+ owl-rviz-sim:
+   command: opt/ros/noetic/bin/roslaunch owl_description rviz.launch
+   extensions: [ros1-noetic]
